@@ -53,16 +53,16 @@
           });
       }
 
-      window.onload = function() {
+      window.addEventListener('load', function() {
           if (!sessionStorage.getItem('sessionStarted')) {
               sessionStorage.setItem('sessionStarted', 'true');
               trackSessionStart();
           }
-      };
+      });
 
-      window.onbeforeunload = function() {
+      window.addEventListener('beforeunload', function() {
           trackSessionEnd();
-      };
+      });
     </script>
 </head>
 <body>
