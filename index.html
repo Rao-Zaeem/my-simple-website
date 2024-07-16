@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Website</title>
+    <script src="https://cdn.segment.com/analytics.js/v1/YOUR_WRITE_KEY/analytics.min.js"></script>
+    <script>
+        analytics.page();
+
+        function trackButtonClick() {
+            analytics.track('Button Clicked', {
+                category: 'Buttons',
+                label: 'Example Button'
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to My Simple Website</h1>
+    <button onclick="trackButtonClick()">Click me</button>
+</body>
+</html>
