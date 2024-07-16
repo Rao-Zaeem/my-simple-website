@@ -38,6 +38,31 @@
               label: 'Example Image'
           });
       }
+
+      function trackSessionStart() {
+          analytics.track('Session Started', {
+              category: 'Session',
+              label: 'User Session'
+          });
+      }
+
+      function trackSessionEnd() {
+          analytics.track('Session Ended', {
+              category: 'Session',
+              label: 'User Session'
+          });
+      }
+
+      window.onload = function() {
+          if (!sessionStorage.getItem('sessionStarted')) {
+              sessionStorage.setItem('sessionStarted', 'true');
+              trackSessionStart();
+          }
+      };
+
+      window.onbeforeunload = function() {
+          trackSessionEnd();
+      };
     </script>
 </head>
 <body>
