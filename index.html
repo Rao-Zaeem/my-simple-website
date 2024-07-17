@@ -9,8 +9,7 @@
       analytics.load("zqxlivgAmvdT8YsnBRYmtjG0eV1ppGGH");
       analytics.page();
       }}();
-    </script>
-    <script>
+
       function trackButtonClick() {
           analytics.track('Button Clicked', {
               category: 'Buttons',
@@ -49,7 +48,6 @@
                   '$time': new Date().toISOString(),
                   '$region': 'Your Region', // Replace with actual value if dynamic
                   '$origin_start': 'Session Started',
-                  '$origin_end': 'Session Ended', // This will be used in trackSessionEnd
                   '$event_name': 'Session Started',
                   '$event_count': 1,
                   '$duration_s': 0,
@@ -70,7 +68,6 @@
                   'mp_country_code': 'US', // Replace with actual value if dynamic
                   '$time': new Date().toISOString(),
                   '$region': 'Your Region', // Replace with actual value if dynamic
-                  '$origin_start': 'Session Started', // This was used in trackSessionStart
                   '$origin_end': 'Session Ended',
                   '$event_name': 'Session Ended',
                   '$event_count': 1,
@@ -84,10 +81,11 @@
       }
 
       window.addEventListener('load', function() {
-          if (!sessionStorage.getItem('sessionStarted')) {
-              sessionStorage.setItem('sessionStarted', 'true');
-              trackSessionStart();
-          }
+          trackSessionStart();
+      });
+
+      window.addEventListener('beforeunload', function() {
+          trackSessionEnd();
       });
 
       document.addEventListener('visibilitychange', function() {
