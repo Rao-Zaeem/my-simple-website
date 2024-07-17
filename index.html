@@ -47,7 +47,16 @@
                   '$origin_start': 'Session Started',
                   '$region': 'Your Region',
                   '$current_url': window.location.href,
-                  '$browser': navigator.userAgent
+                  '$browser': navigator.userAgent,
+                  'mp_lib': 'Web',
+                  'mp_country_code': 'US',
+                  '$time': new Date().toISOString(),
+                  '$event_name': 'Session Started',
+                  '$event_count': 1,
+                  '$duration_s': 0,
+                  '$distinct_id': 'unique_user_id', // Replace with actual unique user ID
+                  '$city': 'San Francisco',
+                  '$region': 'California'
               }
           });
       }
@@ -60,7 +69,16 @@
                   '$origin_end': 'Session Ended',
                   '$region': 'Your Region',
                   '$current_url': window.location.href,
-                  '$browser': navigator.userAgent
+                  '$browser': navigator.userAgent,
+                  'mp_lib': 'Web',
+                  'mp_country_code': 'US',
+                  '$time': new Date().toISOString(),
+                  '$event_name': 'Session Ended',
+                  '$event_count': 1,
+                  '$duration_s': 0, // Calculate the actual session duration
+                  '$distinct_id': 'unique_user_id', // Replace with actual unique user ID
+                  '$city': 'San Francisco',
+                  '$region': 'California'
               }
           });
       }
