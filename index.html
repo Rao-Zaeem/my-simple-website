@@ -11,72 +11,42 @@
       }}();
 
       function trackButtonClick() {
-          analytics.track('Button Clicked', {
+          posthog.capture('Button Clicked', {
               category: 'Buttons',
               label: 'Example Button'
           });
       }
 
       function trackFormSubmission() {
-          analytics.track('Form Submitted', {
+          posthog.capture('Form Submitted', {
               category: 'Forms',
               label: 'Example Form'
           });
       }
 
       function trackLinkClick() {
-          analytics.track('Link Clicked', {
+          posthog.capture('Link Clicked', {
               category: 'Links',
               label: 'Example Link'
           });
       }
 
       function trackImageHover() {
-          analytics.track('Image Hovered', {
+          posthog.capture('Image Hovered', {
               category: 'Images',
               label: 'Example Image'
           });
       }
 
       function trackSessionStart() {
-          analytics.track('Session Started', {
-              category: 'Session',
-              label: 'User Session',
-              properties: {
-                  'mp_lib': 'Web', // Replace with actual value if dynamic
-                  'mp_country_code': 'US', // Replace with actual value if dynamic
-                  '$time': new Date().toISOString(),
-                  '$region': 'Your Region', // Replace with actual value if dynamic
-                  '$origin_start': 'Session Started',
-                  '$event_name': 'Session Started',
-                  '$event_count': 1,
-                  '$duration_s': 0,
-                  '$distinct_id': 'unique_user_id', // Replace with actual unique user ID
-                  '$current_url': window.location.href,
-                  '$city': 'San Francisco', // Replace with actual value if dynamic
-                  '$browser': navigator.userAgent
-              }
+          posthog.capture('Session Started', {
+              timestamp: new Date().toISOString()
           });
       }
 
       function trackSessionEnd() {
-          analytics.track('Session Ended', {
-              category: 'Session',
-              label: 'User Session',
-              properties: {
-                  'mp_lib': 'Web', // Replace with actual value if dynamic
-                  'mp_country_code': 'US', // Replace with actual value if dynamic
-                  '$time': new Date().toISOString(),
-                  '$region': 'Your Region', // Replace with actual value if dynamic
-                  '$origin_end': 'Session Ended',
-                  '$event_name': 'Session Ended',
-                  '$event_count': 1,
-                  '$duration_s': 0, // Calculate the actual session duration
-                  '$distinct_id': 'unique_user_id', // Replace with actual unique user ID
-                  '$current_url': window.location.href,
-                  '$city': 'San Francisco', // Replace with actual value if dynamic
-                  '$browser': navigator.userAgent
-              }
+          posthog.capture('Session Ended', {
+              timestamp: new Date().toISOString()
           });
       }
 
