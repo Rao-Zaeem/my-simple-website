@@ -52,13 +52,14 @@
       }
 
       window.addEventListener('load', function() {
-          trackSessionStart();
+          if (!sessionStorage.getItem('sessionStarted')) {
+              sessionStorage.setItem('sessionStarted', 'true');
+              trackSessionStart();
+          }
       });
 
-      document.addEventListener('visibilitychange', function() {
-          if (document.visibilityState === 'hidden') {
-              trackSessionEnd();
-          }
+      window.addEventListener('beforeunload', function(event) {
+          trackSessionEnd();
       });
     </script>
 </head>
