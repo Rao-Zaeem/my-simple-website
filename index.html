@@ -63,10 +63,7 @@
       }
 
       window.addEventListener('load', function() {
-          if (!sessionStorage.getItem('sessionStarted')) {
-              sessionStorage.setItem('sessionStarted', 'true');
               trackSessionStart();
-          }
       });
 
       window.addEventListener('beforeunload', function() {
